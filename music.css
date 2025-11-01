@@ -5,6 +5,7 @@ body{
     box-sizing: border-box;
     font-family:Arial, Helvetica, sans-serif;
     background-color: #000;
+    /* height: 200vh; */
 }
 
 .Music-player{
@@ -19,25 +20,31 @@ body{
 .Music-player{
      background-color: #000;
     width:100%;
-    height:250vh;
+    height:550vh;
     text-wrap: wrap;
      /* height: 170vh; */
     color: #fff;
+    padding-left: 20px;
 
 }
 nav{
     display: flex;
+    /* justify-content: space-between; */
     gap:30px;
     margin-bottom: 20px;
+    margin-top: 10px;
+}
+nav svg{
+    margin-left: 35%;
 }
 nav strong{
     font-size: 30px;
-    margin-top: 9px;
+    margin-top: 2px;
 }
 .profile-container{
-     width:50px;
-    height:50px;
-    background-color: rgb(223, 74, 99);
+     width:40px;
+    height:40px;
+    background-color: rgb(198, 54, 150);
     border-radius: 50%;
     font-size: 28px;
     display: flex;
@@ -59,20 +66,32 @@ nav strong{
     color: #666;
     outline: none;
     font-weight: 600;
+    /* position: fixed; */
+    /* z-index: 1000; */
    
 }
 .top-suggestion{
     display: flex;
     width:95%;
-    height:160px;
+    height:200px;
     /* background-color: blueviolet; */
     gap:15px;
     margin-top: 40px;
      margin-bottom: 40px;
+
+}
+.top-suggest-text{
+    position: absolute;
+    bottom: 10px;
+    left:10px;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
 }
 .suggestion{
     flex:1;
     height: 100%;
+    position: relative;
     /* background-color: green; */
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(255,255,255,0.03);
@@ -92,7 +111,7 @@ nav strong{
     /* background-color: blueviolet; */
     gap:15px;
     margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 80px;
     
 }
 .browse-suggest{
@@ -119,29 +138,31 @@ nav strong{
 
 
 .overlay-container{
-    position: fixed;
+    position: absolute;
     top:0;
     left:0;
-    width:100vw;
-    height:250vh;
+    width:100%;
+    height:450vh;
     /* background-color: rgba(0,0,0,0.7); */
     background-color: #000;
     /* display: flex; */
-    z-index: 1000;
+    z-index: 1;
     color: #ffff;
     font-size: 1.2rem;
 }
 .overlay-input-section{
-    position: absolute;
+    position: fixed;
     left:0;
     width: 100%;
     height:70px;
     right:0;
+    top:0;
+    z-index: 100;
     background-color: #161616;
     /* background-color: #666; */
 }
 .overlay-input-section input{
-    width:100%;
+    width:60%;
     height: 100%;
     font-size: 18px;
     background-color: transparent;
@@ -169,8 +190,8 @@ ul li{
 }
 
  .loader {
-      width: 60px;
-      height: 60px;
+      width: 40px;
+      height: 40px;
       border: 6px solid rgba(255, 255, 255, 0.1);
       border-top: 6px solid #1DB954; /* Spotify green */
       border-radius: 50%;
@@ -178,6 +199,10 @@ ul li{
       /* position: absolute; */
       margin-top:85%;
       margin-left:36%;
+      position: absolute;
+      /* top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%); */
     }
     @keyframes spin {
       0% { transform: rotate(0deg); }
@@ -187,8 +212,8 @@ ul li{
     .loader::after {
       content: '';
       position: absolute;
-      width: 60px;
-      height: 60px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       box-shadow: 0 0 8px rgba(29, 185, 84, 0.6);
       animation: pulse 1.5s ease-in-out infinite;
@@ -210,14 +235,14 @@ ul li{
     align-items: center;
 }
 .error-container h2{
-    font-size: 30px;
+    font-size: 1.2rem;
 }
 .error-container small{
-    font-size: 18px;
+    font-size: 1.0rem;
     color: #cecece;
 }
 .error-container button{
-    padding: 20px 40px;
+    padding: 15px 34px;
     font-size: 26px;
     margin-top: 30px;
     border-radius: 50px;
@@ -230,10 +255,19 @@ ul li{
 .music-Allresults{
     display: flex;
     flex-direction: column;
-    gap:20px;
+    justify-content: space-between;
+    gap:25px;
     width:100%;
     height: 100%;
+   
     /* background-color: blueviolet; */
+}
+.music-details{
+    flex: 1;
+    align-items: left;
+}
+.artist-name{
+    color: #666;
 }
 .music-result{
     
@@ -241,7 +275,10 @@ ul li{
     /* background-color: red; */
     height: 80px;
     display: flex;
-    gap:20px;
+    gap:40px;
+}
+.music-result svg{
+    margin-top: 10px;
 }
 .music-result img{
     border-radius: 5px;
@@ -249,7 +286,61 @@ ul li{
 .music-close-btn{
     font-size: 30px;
     color: #b3b3b3;
+     margin-right: 20px;
+    /* margin-top: 10px; */
 }
+.add-btn{
+    font-size: 30px;
+    color: #b3b3b3;
+     margin-right: 20px;
+}
+
+
+.bottom-navbar{
+    width: 100%;
+    height: 165px;
+    z-index: 1000;
+    /* background-color: #212121; */
+    background-color: #000;
+    /* background-color: yellow; */
+    
+    position: fixed;
+    left:0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    justify-content: space-between;
+    padding-top: 10px;
+    /* padding-left: 20px; */
+    padding-right: 20px;
+    /* gap: 25px; */
+}
+.nav-img{
+    width:40px;
+    height:40px;
+}
+.nav-link{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    margin-left: 10px;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    padding-right: 15px;
+}
+.nav-link strong{
+    color: #b3b3b3;
+    font-weight: 200;
+    font-size: 0.8rem;
+}
+
+
+
+
+
+
+
 /*for splash screen*/
 .splash-container {
   display: flex;
