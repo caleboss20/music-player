@@ -19,7 +19,8 @@
         function MusicPlayList(){
             const [musicvalue,setmusicvalue]=React.useState(''); 
             const [showoverlay,setShowoverlay]=React.useState(false);
-             const [circleoverlay,setCircleoverlay]=React.useState(false);
+            const [circleoverlay,setCircleoverlay]=React.useState(false);
+            const musicDisplayRef=React.useRef(null);
 
             const [MusicPlay,setMusicPlay]=React.useState([
                 {
@@ -48,11 +49,108 @@
                 },
                 {
                      id:5,
-                   image:'img6.jpg',
-                   title:'Great Are you Lord',
+                   image:'img4.jpg',
+                   title:'Glory is Your name',
                    artist:'Joe Mettle'
-                }
-             ])
+                },
+
+                 {
+                   id:6,
+                   image:'img6.jpg',
+                   title:'There is prophecy over me',
+                   artist:'Joe Mettle' 
+                },
+                {
+                    id:7,
+                    image:'img7.jpg',
+                   title:'Casting Crowns',
+                   artist:'Sandra Okyere'
+                },
+                {
+                    id:8,
+                    image:'m1.jpg',
+                   title:'What A Beautiful name it is',
+                   artist:'Mabel Sally'
+                },
+                {
+                     id:9,
+                   image:'m2.jpg',
+                   title:'Jesus Oue Loving Lord',
+                   artist:'MOG' 
+                },
+                {
+                     id:10,
+                   image:'m3.jpg',
+                   title:'Jesus ,I am grateful',
+                   artist:'MOG'
+                },
+                  { id: 11,
+                    image: "m1.jpg",
+                    title: "Take Me to the King",
+                    artist: "Tamela Mann" 
+                },
+
+                 { id: 12,
+                     image: "m2.jpg",
+                     title: "Believe for It", 
+                     artist: "CeCe Winans"
+                 },
+
+                    { id: 13, 
+                    image: "m3.jpg", 
+                    title: "Total Praise", 
+                    artist: "Richard Smallwood with Vision" },
+
+                    { id: 14, image: "m4.jpg", title: "I’ve Got Joy", artist: "CeCe Winans" },
+                    { id: 15, image: "m5.jpg", title: "Your Spirit", artist: "Tasha Cobbs Leonard" },
+                    { id: 16, image: "m6.jpg", title: "Break Every Chain", artist: "Tasha Cobbs Leonard" },
+                    { id: 17, image: "m7.jpg", title: "King of Kings", artist: "Hillsong Worship" },
+                    { id: 18, image: "m1.jpg", title: "What A Beautiful Name", artist: "Hillsong Worship" },
+                    { id: 19, image: "m2.jpg", title: "Amazing Grace (My Chains Are Gone)", artist: "Chris Tomlin" },
+                    { id: 20, image: "m3.jpg", title: "10,000 Reasons (Bless The Lord)", artist: "Matt Redman" },
+                    { id: 21, image: "m4.jpg", title: "I Know Who I Am", artist: "Sinach" },
+                    { id: 22, image: "m5.jpg", title: "You Will Win", artist: "Jekalyn Carr" },
+                    { id: 23, image: "m6.jpg", title: "Be Blessed", artist: "Yolanda Adams" },
+                    { id: 24, image: "m7.jpg", title: "God I Look To You", artist: "Tasha Cobbs Leonard" },
+                    { id: 25, image: "m1.jpg", title: "Your Name", artist: "Sinach" },
+                    { id: 26, image: "m2.jpg", title: "Stand", artist: "Donnie McClurkin" },
+                    { id: 27, image: "m3.jpg", title: "Great Is Your Mercy", artist: "Donnie McClurkin" },
+                    { id: 28, image: "m4.jpg", title: "Wings of a Dove", artist: "Ferlin Husky" },
+                    { id: 29, image: "m5.jpg", title: "How Great Thou Art", artist: "Carrie Underwood" },
+                    { id: 30, image: "m6.jpg", title: "I’ll Fly Away", artist: "Albert E. Brumley" },
+                    { id: 31, image: "m7.jpg", title: "Jesus Paid It All", artist: "Elvina M. Hall" },
+                    { id: 32, image: "m1.jpg", title: "God Really Loves Us", artist: "Crowder & Dante Bowe" },
+                    { id: 33, image: "m2.jpg", title: "Use This Gospel", artist: "Kanye West ft. Clipse & Kenny G" },
+                    { id: 34, image: "m3.jpg", title: "Holy You", artist: "Tye Tribbett" },
+                    { id: 35, image: "m4.jpg", title: "Our King Has Come", artist: "Katy Nichole" },
+                    { id: 36, image: "m5.jpg", title: "Alagbara", artist: "TY Bello" },
+                    { id: 37, image: "m6.jpg", title: "Sovereign God", artist: "Xolly Mncwango" },
+                    { id: 38, image: "m7.jpg", title: "Let Us Praise Him", artist: "Victoria Orenze" },
+                    { id: 39, image: "m1.jpg", title: "Open The Flood Gate (Baba Oh)", artist: "Sonnie Badu" },
+                    { id: 40, image: "m2.jpg", title: "Woye Ma Me", artist: "Joe Mettle" },
+                    { id: 41, image: "m3.jpg", title: "Ma Lumière", artist: "Deborah Lukalu" },
+                    { id: 42, image: "m4.jpg", title: "Thank You Lord", artist: "Joyous Celebration" },
+                    { id: 43, image: "m5.jpg", title: "I Saw the Light", artist: "Hank Williams" },
+                    { id: 44, image: "m6.jpg", title: "Precious Memories", artist: "J.B.F. Wright" },
+                    { id: 45, image: "m7.jpg", title: "In the Garden", artist: "C. Austin Miles" },
+                    { id: 46, image: "m1.jpg", title: "Peace in the Valley", artist: "Thomas A. Dorsey" },
+                    { id: 47, image: "m2.jpg", title: "Oh Happy Day", artist: "Edwin Hawkins Singers" },
+                    { id: 48, image: "m3.jpg", title: "When the Saints Go Marching In", artist: "Sidney Bechet" },
+                    { id: 49, image: "m4.jpg", title: "Hard Times Come Again No More", artist: "Traditional" },
+                    { id: 50, image: "m5.jpg", title: "My Sweet Lord", artist: "George Harrison" },
+                    { id: 51, image: "m6.jpg", title: "All I Need Is You", artist: "Hillsong United" },
+                    { id: 52, image: "m7.jpg", title: "All the Earth Will Sing Your Praises", artist: "Vertical Church Band" },
+                    { id: 53, image: "m1.jpg", title: "All Things New", artist: "PraiseGathering" },
+                    { id: 54, image: "m2.jpg", title: "All to Him", artist: "New Life Worship" },
+                    { id: 55, image: "m3.jpg", title: "All Power Is Given Unto Me", artist: "WorldSongNow" },
+                    { id: 56, image: "m4.jpg", title: "I’ll Fly Away (Alternate)", artist: "Various" },
+                    { id: 57, image: "m5.jpg", title: "Abode Nyinara, Mo Nkoto Ewurade", artist: "Traditional Akan Gospel" },
+                    { id: 58, image: "m6.jpg", title: "Aman Nyinaa Beyi", artist: "Traditional Akan Gospel" },
+                    { id: 59, image: "m7.jpg", title: "Ampara Wo Ye Daa Daa Nyame", artist: "Eugene Zuta" },
+                    { id: 60, image: "m1.jpg", title: "Aseda Nka Ewurade", artist: "Traditional Akan Gospel" }
+
+
+             ]);
 
              const handleDelete=(i)=>{
             const newList=[...MusicPlay];
@@ -79,9 +177,21 @@
                  || music.artist.toLowerCase().includes(musicvalue.toLowerCase())
                 ):[]
 
+
+
+                //for the scroll to buttom//
+                React.useEffect(()=>{
+                const Listcontainer=musicDisplayRef.current;
+                if(Listcontainer){
+                    Listcontainer.scrollTop=Listcontainer.scrollHeight;
+                  }
+                 
+                },[])
+
                 
 
                 return(
+                    <>
                     <Musify 
                     
                     GetUserInput={GetUserInput}
@@ -92,35 +202,47 @@
                     circleoverlay={circleoverlay}
                     setCircleoverlay={setCircleoverlay}
                      handleDelete={handleDelete}
+                     musicDisplayRef ={musicDisplayRef}
                     
                     />
-                    
-                
-                )
-             }
 
-    function Musify({GetUserInput,musicvalue,filterItems,showoverlay,setShowoverlay,circleoverlay,setCircleoverlay,handleDelete}){
+                    <BottomNavbar 
+                     showoverlay={showoverlay}
+                    setShowoverlay={setShowoverlay}
+                    />
+                    </>  
+                  )
+                }
+
+
+
+    function Musify({GetUserInput,musicvalue,filterItems,showoverlay,setShowoverlay,circleoverlay,setCircleoverlay,handleDelete,musicDisplayRef}){
     return(
     <div className="Music-player">
         <nav>
             <div className="profile-container"><img className="profile-img" /><span>C</span></div>
             <strong>Search</strong>
-            <img className="camera-img" src="" />
+            
+            <svg width="35px" height="35px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z" />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM18.75 10.5h.008v.008h-.008V10.5Z" />
+            </svg>
+
         </nav>
         
         {showoverlay ? 
-            <div className="overlay-container">
+            <div className="overlay-container"ref={musicDisplayRef}>
                 <div className="overlay-input-section">
                     <span className="back-arrow"onClick={()=>setShowoverlay(false)}>&larr;</span>
                     <input
                     onChange={GetUserInput}                
                     placeholder="What do you want to listen to?"/>
-             </div>
-                        
+             </div>                 
             <div>
                 <ul>
-                   <h2> {GetUserInput ? 'Recents':null}</h2>   
-            {circleoverlay? <div className="loader"></div>:
+                   <h2>
+              {GetUserInput ? 'Recents':null}</h2>   
+              {circleoverlay? <div className="loader"></div>:
                 musicvalue?filterItems.length >0?
                 
             filterItems.map((item,i)=>(
@@ -129,7 +251,11 @@
              <div key={item.id} className="music-Allresults">
               <div className="music-result">
                 <img src={item.image} width="60px"height="60px" />
-                 <li>{item.title} ||  {item.artist}</li>
+                <div className="music-details">
+                 <li key={item.id}>{item.title}  <br /><span className="artist-name"> {item.artist}...</span></li>
+                 </div>
+
+               
                   <span className="music-close-btn"onClick={()=>handleDelete(i)}>&times;</span> 
                 </div>
                 </div>
@@ -159,14 +285,14 @@
                 placeholder="What do you want to listen to?"/>
                 <h2>Discover something new</h2>
                 <div className="top-suggestion">
-                   <div className="suggestion"><img src="img1.jpg" /></div>
-                    <div className="suggestion"><img src="img2.jpg" /></div>
-                    <div className="suggestion"><img src="img4.jpg" /></div>
+                   <div className="suggestion"><img src="m8.jpg" /><span className="top-suggest-text">#boombang</span></div>
+                    <div className="suggestion"><img src="m2.jpg" /><span className="top-suggest-text">#melody</span></div>
+                    <div className="suggestion"><img src="img4.jpg" /><span className="top-suggest-text">#dancemusic</span></div>
                 </div>
                 <h2>Browse all</h2>
 
                  <div className="browse-suggestion">
-                    <div className="browse-suggest"><img src="m4.jpg" /><span className="suggest-text">Music</span></div>
+                    <div className="browse-suggest"><img src="img1.jpg" /><span className="suggest-text">Music</span></div>
                     <div className="browse-suggest"><img src="m2.jpg" /><span className="suggest-text">Up-comi...</span></div>
                     <div className="browse-suggest"><img src="m3.jpg" /><span className="suggest-text">Live Events</span></div>
                     <div className="browse-suggest"><img src="m1.jpg" /><span className="suggest-text">Afro</span></div>
@@ -180,20 +306,87 @@
                     <div className="browse-suggest"><img src="m12.jpg" /><span className="suggest-text">Discover</span></div>
                     <div className="browse-suggest"><img src="img3.jpg" /><span className="suggest-text">Afro</span></div>
                     <div className="browse-suggest"><img src="img5.jpg" /><span className="suggest-text">Mozarts</span></div>
-                    <div className="browse-suggest"><img src="img6.jpg" /><span className="suggest-text">Discover</span></div>
-                   
-                    
+                    <div className="browse-suggest"><img src="img6.jpg" /><span className="suggest-text">Discover</span></div>         
                    
                 </div>
-                    </div>           
+            </div>           
                 )
              }
-            function App(){
+
+
+             function MyMusicsplash(){
                 return(
                     <>
-                    <MusicPlayList />
+                    <div className="splash-container">
+                        <h1 className="splash-title">
+                            <span className="bounce">Caleb</span>
+                            <span className="electric">Music</span>
+                        </h1>
+                    </div>
+                   
                     </>
                 )
+             }
+
+
+    function BottomNavbar({showoverlay,setShowoverlay}){
+        return(
+            <div className="bottom-navbar">
+                <div className="nav-link" onClick={()=>setShowoverlay(false)}>
+                <svg width="35px"height="35px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.2} stroke="currentColor" className="size-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                    </svg>
+                    <strong>Home</strong>
+                </div>
+                
+                <div className="nav-link" onClick={()=>setShowoverlay(true)}>
+                    <svg width="35px"height="35px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.2} stroke="currentColor" className="size-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+                    <strong>Search</strong>
+                </div>
+
+                <div className="nav-link">
+                <svg width="35px"height="35px"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.2} stroke="currentColor" className="size-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" />
+                </svg>
+                    <strong>Your Library</strong>
+                </div>
+
+                <div className="nav-link">
+                    <svg width="35px"height="35px"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.2} stroke="currentColor" className="size-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0 .981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 0 0 7.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 0 0 2.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 0 1 2.916.52 6.003 6.003 0 0 1-5.395 4.972m0 0a6.726 6.726 0 0 1-2.749 1.35m0 0a6.772 6.772 0 0 1-3.044 0" />
+                    </svg>
+                    <strong>Premium</strong>
+                </div>
+
+                <div className="nav-link">
+                    <svg width="35px"height="35px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.2} stroke="currentColor" className="size-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                    <strong>Create</strong>
+                </div>
+            </div>
+        )
+        }
+
+            function App(){
+            const [splashScreen,setSplashScreen]=React.useState(true);
+            React.useEffect(()=>{
+             const timer=setTimeout(()=>{
+                setSplashScreen(false);
+             },1000)
+             return()=>clearTimeout(timer);
+            },[])
+
+           
+            return(
+                    <>
+                    {splashScreen? <MyMusicsplash />:<MusicPlayList />}
+                    
+                    </>
+                )
+                
             }
      
       const container = document.querySelector('.js-container');
