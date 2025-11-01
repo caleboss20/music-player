@@ -123,7 +123,7 @@ nav strong{
     top:0;
     left:0;
     width:100vw;
-    /* height:250vh; */
+    height:250vh;
     /* background-color: rgba(0,0,0,0.7); */
     background-color: #000;
     /* display: flex; */
@@ -254,6 +254,7 @@ ul li{
 
 
 }
+
 
 
 
