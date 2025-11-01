@@ -180,20 +180,46 @@
                     <div className="browse-suggest"><img src="m12.jpg" /><span className="suggest-text">Discover</span></div>
                     <div className="browse-suggest"><img src="img3.jpg" /><span className="suggest-text">Afro</span></div>
                     <div className="browse-suggest"><img src="img5.jpg" /><span className="suggest-text">Mozarts</span></div>
-                    <div className="browse-suggest"><img src="img6.jpg" /><span className="suggest-text">Discover</span></div>
-                   
-                    
+                    <div className="browse-suggest"><img src="img6.jpg" /><span className="suggest-text">Discover</span></div>         
                    
                 </div>
-                    </div>           
+            </div>           
                 )
              }
-            function App(){
+
+
+             function MyMusicsplash(){
                 return(
                     <>
-                    <MusicPlayList />
+                    <div className="splash-container">
+                        <h1 className="splash-title">
+                            <span className="bounce">Caleb</span>
+                            <span className="electric">Music</span>
+                        </h1>
+                    </div>
+                   
                     </>
                 )
+             }
+
+
+            function App(){
+            const [splashScreen,setSplashScreen]=React.useState(true);
+            React.useEffect(()=>{
+             const timer=setTimeout(()=>{
+                setSplashScreen(false)
+             },7000)
+             return()=>clearTimeout(timer);
+            },[])
+
+           
+            return(
+                    <>
+                    {splashScreen? <MyMusicsplash /> :<MusicPlayList />}
+                    
+                    </>
+                )
+                
             }
      
       const container = document.querySelector('.js-container');
