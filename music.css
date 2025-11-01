@@ -5,7 +5,6 @@ body{
     box-sizing: border-box;
     font-family:Arial, Helvetica, sans-serif;
     background-color: #000;
-    overflow-x:hidden;
 }
 
 .Music-player{
@@ -205,21 +204,21 @@ ul li{
     width:95%;
     height: 300px;
     /* background-color: red;  */
-    margin-top: 170px;  
+    margin-top: 230px;  
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .error-container h2{
-    font-size: 18px;
+    font-size: 30px;
 }
 .error-container small{
-    font-size: 15px;
+    font-size: 18px;
     color: #cecece;
 }
 .error-container button{
-    padding: 10px 32px;
-    font-size: 22px;
+    padding: 20px 40px;
+    font-size: 26px;
     margin-top: 30px;
     border-radius: 50px;
     color: #000;
@@ -251,13 +250,61 @@ ul li{
     font-size: 30px;
     color: #b3b3b3;
 }
+/*for splash screen*/
+.splash-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #121212;
+  color: #fff;
+  flex-direction: column;
+  overflow: hidden;
+}
+.splash-title {
+  font-size: 2.8rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
 
+.bounce {
+  display: inline-block;
+  animation: bounce 1s ease-in-out infinite alternate;
+  color: #00bcd4; 
+}
 
+.electric {
+  display: inline-block;
+  margin-left: 6px;
+  color: #ff4081; 
+  text-shadow: 0 0 8px #ff4081, 0 0 16px #ff4081, 0 0 24px #ff4081;
+  animation: glow 1.2s ease-in-out infinite alternate;
+}
 
+.main-app {
+  text-align: center;
+  padding: 40px;
+  background-color: #1a1a1a;
+  color: white;
+  min-height: 100vh;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-15px);
+  }
+}
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #ff4081, 0 0 10px #ff4081;
+  }
+  to {
+    text-shadow: 0 0 20px #ff4081, 0 0 40px #ff4081, 0 0 60px #ff4081;
+  }
 }
 
 
-
-
-
-
+}
