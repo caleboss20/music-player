@@ -210,10 +210,10 @@ ul li{
     align-items: center;
 }
 .error-container h2{
-    font-size: 22px;
+    font-size: 18px;
 }
 .error-container small{
-    font-size: 16px;
+    font-size: 15px;
     color: #cecece;
 }
 .error-container button{
@@ -254,4 +254,5 @@ ul li{
 
 
 }
+
 
