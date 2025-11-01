@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React project</title>
+    <link rel="stylesheet" href="music.css">
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+   //practice//
+
+        function MusicPlayList(){
+            const [musicvalue,setmusicvalue]=React.useState(''); 
+            const [showoverlay,setShowoverlay]=React.useState(false);
+             const [circleoverlay,setCircleoverlay]=React.useState(false);
+
+            const [MusicPlay,setMusicPlay]=React.useState([
+                {
+                   id:1,
+                   image:'img1.jpg',
+                   title:'oh merciful Lord',
+                   artist:'Joe Mettle' 
+                },
+                {
+                    id:2,
+                    image:'img2.jpg',
+                   title:'Grateful to You Lord',
+                   artist:'Joyce Blessing'
+                },
+                {
+                    id:3,
+                    image:'img3.jpg',
+                   title:'Wonderful Saviour',
+                   artist:'Obaapa Christy'
+                },
+                {
+                     id:4,
+                   image:'img5.jpg',
+                   title:'oh merciful Lord',
+                   artist:'Joe Mettle' 
+                },
+                {
+                     id:5,
+                   image:'img6.jpg',
+                   title:'Great Are you Lord',
+                   artist:'Joe Mettle'
+                }
+             ])
+
+             const handleDelete=(i)=>{
+            const newList=[...MusicPlay];
+             newList.splice(i,1);
+             setMusicPlay(newList);
+             }
+            
+
+
+
+                const GetUserInput=(e)=>{
+                    setmusicvalue(e.target.value);
+                    setCircleoverlay(true);
+                   
+                    clearTimeout(window.loaderTimeout);
+                    window.loaderTimeout=setTimeout(()=>{
+                        setCircleoverlay(false);
+                    },2000)
+                }
+
+                const filterItems=musicvalue? 
+                MusicPlay.filter(music=>
+                music.title.toLowerCase().includes(musicvalue.toLowerCase())
+                 || music.artist.toLowerCase().includes(musicvalue.toLowerCase())
+                ):[]
+
+                
+
+                return(
+                    <Musify 
+                    
+                    GetUserInput={GetUserInput}
+                    musicvalue={musicvalue}
+                    filterItems={filterItems}
+                    showoverlay={showoverlay}
+                    setShowoverlay={setShowoverlay}
+                    circleoverlay={circleoverlay}
+                    setCircleoverlay={setCircleoverlay}
+                     handleDelete={handleDelete}
+                    
+                    />
+                    
+                
+                )
+             }
+
+    function Musify({GetUserInput,musicvalue,filterItems,showoverlay,setShowoverlay,circleoverlay,setCircleoverlay,handleDelete}){
+    return(
+    <div className="Music-player">
+        <nav>
+            <div className="profile-container"><img className="profile-img" /><span>C</span></div>
+            <strong>Search</strong>
+            <img className="camera-img" src="" />
+        </nav>
+        
+        {showoverlay ? 
+            <div className="overlay-container">
+                <div className="overlay-input-section">
+                    <span className="back-arrow"onClick={()=>setShowoverlay(false)}>&larr;</span>
+                    <input
+                    onChange={GetUserInput}                
+                    placeholder="What do you want to listen to?"/>
+             </div>
+                        
+            <div>
+                <ul>
+                   <h2> {GetUserInput ? 'Recents':null}</h2>   
+            {circleoverlay? <div className="loader"></div>:
+                musicvalue?filterItems.length >0?
+                
+            filterItems.map((item,i)=>(
+            <>
+           
+             <div key={item.id} className="music-Allresults">
+              <div className="music-result">
+                <img src={item.image} width="60px"height="60px" />
+                 <li>{item.title} ||  {item.artist}</li>
+                  <span className="music-close-btn"onClick={()=>handleDelete(i)}>&times;</span> 
+                </div>
+                </div>
+            </>
+             )
+            ):
+            <li>
+                <div className="error-container">
+                   <h2>Something went wrong.</h2>
+                   <small>Have another go?</small><br />
+                   <button>Try again</button>
+                </div>
+            </li>
+
+            :null}
+                 </ul>
+                 </div>
+
+                    </div> :null}
+                
+                
+                <input
+                onFocus={()=>setShowoverlay(true)}
+               
+                className="input-box"
+                value={musicvalue} 
+                placeholder="What do you want to listen to?"/>
+                <h2>Discover something new</h2>
+                <div className="top-suggestion">
+                   <div className="suggestion"><img src="img1.jpg" /></div>
+                    <div className="suggestion"><img src="img2.jpg" /></div>
+                    <div className="suggestion"><img src="img4.jpg" /></div>
+                </div>
+                <h2>Browse all</h2>
+
+                 <div className="browse-suggestion">
+                    <div className="browse-suggest"><img src="m4.jpg" /><span className="suggest-text">Music</span></div>
+                    <div className="browse-suggest"><img src="m2.jpg" /><span className="suggest-text">Up-comi...</span></div>
+                    <div className="browse-suggest"><img src="m3.jpg" /><span className="suggest-text">Live Events</span></div>
+                    <div className="browse-suggest"><img src="m1.jpg" /><span className="suggest-text">Afro</span></div>
+                    <div className="browse-suggest"><img src="m5.jpg" /><span className="suggest-text">Mozarts</span></div>
+                    <div className="browse-suggest"><img src="m6.jpg" /><span className="suggest-text">Discover</span></div>
+                    <div className="browse-suggest"><img src="m7.jpg" /><span className="suggest-text">Music</span></div>
+                    <div className="browse-suggest"><img src="m8.jpg" /><span className="suggest-text">Up-comi...</span></div>
+                    <div className="browse-suggest"><img src="m9.jpg" /><span className="suggest-text">Live Events</span></div>
+                    <div className="browse-suggest"><img src="m10.jpg" /><span className="suggest-text">Afro</span></div>
+                    <div className="browse-suggest"><img src="m11.jpg" /><span className="suggest-text">Mozarts</span></div>
+                    <div className="browse-suggest"><img src="m12.jpg" /><span className="suggest-text">Discover</span></div>
+                    <div className="browse-suggest"><img src="img3.jpg" /><span className="suggest-text">Afro</span></div>
+                    <div className="browse-suggest"><img src="img5.jpg" /><span className="suggest-text">Mozarts</span></div>
+                    <div className="browse-suggest"><img src="img6.jpg" /><span className="suggest-text">Discover</span></div>
+                   
+                    
+                   
+                </div>
+                    </div>           
+                )
+             }
+            function App(){
+                return(
+                    <>
+                    <MusicPlayList />
+                    </>
+                )
+            }
+     
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
